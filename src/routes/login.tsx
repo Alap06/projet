@@ -78,7 +78,9 @@ function LoginPage() {
               />
             </div>
             {error && (
-              <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">{error}</p>
+              <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                {error}
+              </p>
             )}
             <button
               type="submit"
@@ -90,8 +92,12 @@ function LoginPage() {
 
           <div className="mt-4 rounded-xl bg-muted/60 p-3 text-xs text-muted-foreground">
             <p className="font-semibold text-foreground">💡 Compte de démonstration admin</p>
-            <p>Email : <code className="font-mono">admin@admin</code></p>
-            <p>Mot de passe : <code className="font-mono">123321</code></p>
+            <p>
+              Email : <code className="font-mono">admin@admin</code>
+            </p>
+            <p>
+              Mot de passe : <code className="font-mono">123321</code>
+            </p>
           </div>
 
           <p className="mt-6 text-center text-sm text-muted-foreground">

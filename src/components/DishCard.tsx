@@ -15,21 +15,24 @@ export function DishCard({ dish }: { dish: Dish }) {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    add({ 
-      dishId: dish.id, 
-      nom: dish.nom, 
-      prix: dish.prix, 
-      image: dish.image, 
-      cuisinier: dish.cuisinier, 
-      ville: dish.ville 
-    }, 1);
-    
+    add(
+      {
+        dishId: dish.id,
+        nom: dish.nom,
+        prix: dish.prix,
+        image: dish.image,
+        cuisinier: dish.cuisinier,
+        ville: dish.ville,
+      },
+      1,
+    );
+
     setAdded(true);
     toast.success(`${dish.nom} ajouté au panier`, {
       description: "Retrouvez-le dans votre panier.",
-      icon: "🛒"
+      icon: "🛒",
     });
-    
+
     setTimeout(() => setAdded(false), 2000);
   };
 
@@ -58,7 +61,9 @@ export function DishCard({ dish }: { dish: Dish }) {
       <div className="flex flex-1 flex-col p-4">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-display text-lg font-semibold leading-tight">{dish.nom}</h3>
-          <span className="shrink-0 font-display text-lg font-bold text-primary">{dish.prix} DT</span>
+          <span className="shrink-0 font-display text-lg font-bold text-primary">
+            {dish.prix} DT
+          </span>
         </div>
         <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{dish.description}</p>
 
@@ -74,12 +79,12 @@ export function DishCard({ dish }: { dish: Dish }) {
               {dish.ville}
             </span>
           </div>
-          
-          <button 
+
+          <button
             onClick={handleAddToCart}
             className={`flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-semibold transition-smooth ${
-              added 
-                ? "bg-primary/10 text-primary" 
+              added
+                ? "bg-primary/10 text-primary"
                 : "bg-primary text-primary-foreground shadow-sm hover:opacity-90"
             }`}
           >

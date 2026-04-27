@@ -35,7 +35,10 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Diary — Cuisine maison près de chez vous" },
-      { name: "description", content: "Diary met en relation cuisiniers passionnés et clients gourmands en Tunisie." },
+      {
+        name: "description",
+        content: "Diary met en relation cuisiniers passionnés et clients gourmands en Tunisie.",
+      },
       { name: "author", content: "Diary" },
       { property: "og:title", content: "Diary — Cuisine maison" },
       { property: "og:description", content: "La cuisine maison de votre quartier." },

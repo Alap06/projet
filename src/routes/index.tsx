@@ -12,9 +12,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Diary — Cuisine maison près de chez vous" },
-      { name: "description", content: "Découvrez et commandez des plats faits maison par des cuisiniers passionnés. Livraison directe, sans intermédiaire." },
+      {
+        name: "description",
+        content:
+          "Découvrez et commandez des plats faits maison par des cuisiniers passionnés. Livraison directe, sans intermédiaire.",
+      },
       { property: "og:title", content: "Diary — Cuisine maison près de chez vous" },
-      { property: "og:description", content: "Plats faits maison par des cuisiniers passionnés près de chez vous." },
+      {
+        property: "og:description",
+        content: "Plats faits maison par des cuisiniers passionnés près de chez vous.",
+      },
     ],
   }),
   component: HomePage,
@@ -57,8 +64,8 @@ function HomePage() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-foreground/80">
-            Des plats préparés avec passion par des cuisiniers de votre quartier.
-            Commandez, contactez, savourez.
+            Des plats préparés avec passion par des cuisiniers de votre quartier. Commandez,
+            contactez, savourez.
           </p>
 
           {/* Search */}
@@ -113,7 +120,10 @@ function HomePage() {
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="h-8 w-8 rounded-full border-2 border-background bg-gradient-warm" />
+                  <div
+                    key={i}
+                    className="h-8 w-8 rounded-full border-2 border-background bg-gradient-warm"
+                  />
                 ))}
               </div>
               <span className="font-medium">+200 cuisiniers vérifiés</span>
@@ -150,8 +160,12 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">Populaires</p>
-            <h2 className="mt-1 font-display text-4xl font-bold tracking-tight">Les plats du moment</h2>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Populaires
+            </p>
+            <h2 className="mt-1 font-display text-4xl font-bold tracking-tight">
+              Les plats du moment
+            </h2>
           </div>
           <Link
             to="/plats"
@@ -172,8 +186,12 @@ function HomePage() {
       <section className="bg-card/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">Comment ça marche</p>
-            <h2 className="mt-2 font-display text-4xl font-bold tracking-tight">Simple, direct, savoureux</h2>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Comment ça marche
+            </p>
+            <h2 className="mt-2 font-display text-4xl font-bold tracking-tight">
+              Simple, direct, savoureux
+            </h2>
             <p className="mt-4 text-muted-foreground">
               Une plateforme pensée pour mettre en relation directe cuisiniers et gourmands.
             </p>
@@ -181,11 +199,26 @@ function HomePage() {
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {[
-              { icon: Search, title: "Choisissez", desc: "Parcourez les plats faits maison par des cuisiniers près de chez vous." },
-              { icon: ChefHat, title: "Commandez", desc: "Le cuisinier reçoit votre commande et prépare votre plat avec soin." },
-              { icon: Truck, title: "Dégustez", desc: "Récupérez votre commande ou faites-la livrer en direct. Aucun intermédiaire." },
+              {
+                icon: Search,
+                title: "Choisissez",
+                desc: "Parcourez les plats faits maison par des cuisiniers près de chez vous.",
+              },
+              {
+                icon: ChefHat,
+                title: "Commandez",
+                desc: "Le cuisinier reçoit votre commande et prépare votre plat avec soin.",
+              },
+              {
+                icon: Truck,
+                title: "Dégustez",
+                desc: "Récupérez votre commande ou faites-la livrer en direct. Aucun intermédiaire.",
+              },
             ].map((s, i) => (
-              <div key={s.title} className="relative rounded-3xl border border-border bg-background p-8 shadow-soft">
+              <div
+                key={s.title}
+                className="relative rounded-3xl border border-border bg-background p-8 shadow-soft"
+              >
                 <div className="absolute -top-4 left-8 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-warm font-display text-sm font-bold text-primary-foreground shadow-warm">
                   {i + 1}
                 </div>
@@ -212,8 +245,8 @@ function HomePage() {
                 Partagez votre cuisine avec votre quartier
               </h2>
               <p className="mt-4 text-base text-primary-foreground/90">
-                Vendez vos plats faits maison, fixez vos prix, gérez vos commandes.
-                Diary s'occupe du reste.
+                Vendez vos plats faits maison, fixez vos prix, gérez vos commandes. Diary s'occupe
+                du reste.
               </p>
               <Link
                 to="/cuisinier"

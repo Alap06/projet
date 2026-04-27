@@ -72,10 +72,21 @@ export function DishesProvider({ children }: { children: ReactNode }) {
   const pendingDishes = list.filter((d) => d.status === "pending");
 
   const getDish = (id: string) => list.find((d) => d.id === id);
-  const getDishesByCuisinier = (nom: string) => list.filter((d) => d.cuisinier.toLowerCase() === nom.toLowerCase());
+  const getDishesByCuisinier = (nom: string) =>
+    list.filter((d) => d.cuisinier.toLowerCase() === nom.toLowerCase());
 
   return (
-    <DishesContext.Provider value={{ dishes: list, approvedDishes, pendingDishes, addDish, setStatus, getDish, getDishesByCuisinier }}>
+    <DishesContext.Provider
+      value={{
+        dishes: list,
+        approvedDishes,
+        pendingDishes,
+        addDish,
+        setStatus,
+        getDish,
+        getDishesByCuisinier,
+      }}
+    >
       {children}
     </DishesContext.Provider>
   );

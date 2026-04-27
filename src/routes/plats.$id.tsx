@@ -3,7 +3,18 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getDish, dishes } from "@/data/dishes";
-import { Star, Clock, MapPin, ChefHat, ArrowLeft, ShoppingBag, ShieldCheck, Plus, Minus, Check } from "lucide-react";
+import {
+  Star,
+  Clock,
+  MapPin,
+  ChefHat,
+  ArrowLeft,
+  ShoppingBag,
+  ShieldCheck,
+  Plus,
+  Minus,
+  Check,
+} from "lucide-react";
 import { DishCard } from "@/components/DishCard";
 import { useCart } from "@/context/CartContext";
 import { useReviews } from "@/context/ReviewsContext";
@@ -33,7 +44,10 @@ export const Route = createFileRoute("/plats/$id")({
       <div className="mx-auto max-w-2xl px-4 py-32 text-center">
         <h1 className="font-display text-4xl font-bold">Plat introuvable</h1>
         <p className="mt-4 text-muted-foreground">Ce plat n'existe pas ou n'est plus disponible.</p>
-        <Link to="/plats" className="mt-6 inline-flex h-11 items-center rounded-full bg-gradient-warm px-6 font-semibold text-primary-foreground shadow-warm">
+        <Link
+          to="/plats"
+          className="mt-6 inline-flex h-11 items-center rounded-full bg-gradient-warm px-6 font-semibold text-primary-foreground shadow-warm"
+        >
           Voir tous les plats
         </Link>
       </div>
@@ -45,7 +59,14 @@ export const Route = createFileRoute("/plats/$id")({
 
 function DishDetail() {
   const { dish } = Route.useLoaderData();
-  const similar = dishes.filter((d) => d.id !== dish.id && d.categorie === dish.categorie && (d.status ?? "approved") === "approved").slice(0, 3);
+  const similar = dishes
+    .filter(
+      (d) =>
+        d.id !== dish.id &&
+        d.categorie === dish.categorie &&
+        (d.status ?? "approved") === "approved",
+    )
+    .slice(0, 3);
   const { add } = useCart();
   const { getStatsForDish } = useReviews();
   const stats = getStatsForDish(dish.id, dish.note, dish.avis);
@@ -54,13 +75,33 @@ function DishDetail() {
   const [added, setAdded] = useState(false);
 
   const handleAdd = () => {
-    add({ dishId: dish.id, nom: dish.nom, prix: dish.prix, image: dish.image, cuisinier: dish.cuisinier, ville: dish.ville }, qty);
+    add(
+      {
+        dishId: dish.id,
+        nom: dish.nom,
+        prix: dish.prix,
+        image: dish.image,
+        cuisinier: dish.cuisinier,
+        ville: dish.ville,
+      },
+      qty,
+    );
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
 
   const handleOrderNow = () => {
-    add({ dishId: dish.id, nom: dish.nom, prix: dish.prix, image: dish.image, cuisinier: dish.cuisinier, ville: dish.ville }, qty);
+    add(
+      {
+        dishId: dish.id,
+        nom: dish.nom,
+        prix: dish.prix,
+        image: dish.image,
+        cuisinier: dish.cuisinier,
+        ville: dish.ville,
+      },
+      qty,
+    );
     navigate({ to: "/panier" });
   };
 
@@ -119,7 +160,9 @@ function DishDetail() {
               <h2 className="font-display text-lg font-semibold">Ingrédients</h2>
               <div className="mt-3 flex flex-wrap gap-2">
                 {dish.ingredients.map((ing: string) => (
-                  <span key={ing} className="rounded-full bg-secondary px-3 py-1 text-sm">{ing}</span>
+                  <span key={ing} className="rounded-full bg-secondary px-3 py-1 text-sm">
+                    {ing}
+                  </span>
                 ))}
               </div>
             </div>
@@ -153,15 +196,23 @@ function DishDetail() {
             <div className="mt-8 rounded-2xl border border-border bg-card p-5 shadow-card">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground">Prix unitaire</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                    Prix unitaire
+                  </p>
                   <p className="font-display text-3xl font-bold text-primary">{dish.prix} DT</p>
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-border bg-background">
-                  <button onClick={() => setQty(Math.max(1, qty - 1))} className="flex h-10 w-10 items-center justify-center rounded-l-full hover:bg-muted">
+                  <button
+                    onClick={() => setQty(Math.max(1, qty - 1))}
+                    className="flex h-10 w-10 items-center justify-center rounded-l-full hover:bg-muted"
+                  >
                     <Minus className="h-4 w-4" />
                   </button>
                   <span className="min-w-[28px] text-center font-semibold">{qty}</span>
-                  <button onClick={() => setQty(qty + 1)} className="flex h-10 w-10 items-center justify-center rounded-r-full hover:bg-muted">
+                  <button
+                    onClick={() => setQty(qty + 1)}
+                    className="flex h-10 w-10 items-center justify-center rounded-r-full hover:bg-muted"
+                  >
                     <Plus className="h-4 w-4" />
                   </button>
                 </div>
@@ -171,7 +222,15 @@ function DishDetail() {
                   onClick={handleAdd}
                   className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-primary bg-background px-5 text-sm font-semibold text-primary transition-smooth hover:bg-primary/5"
                 >
-                  {added ? (<><Check className="h-4 w-4" /> Ajouté !</>) : (<><Plus className="h-4 w-4" /> Ajouter au panier</>)}
+                  {added ? (
+                    <>
+                      <Check className="h-4 w-4" /> Ajouté !
+                    </>
+                  ) : (
+                    <>
+                      <Plus className="h-4 w-4" /> Ajouter au panier
+                    </>
+                  )}
                 </button>
                 <button
                   onClick={handleOrderNow}

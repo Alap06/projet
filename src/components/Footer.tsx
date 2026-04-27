@@ -21,31 +21,67 @@ export function Footer() {
           <div>
             <h3 className="font-display text-base font-semibold">Découvrir</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/plats" className="hover:text-primary">Tous les plats</Link></li>
-              <li><Link to="/plats" className="hover:text-primary">Cuisiniers</Link></li>
-              <li><Link to="/" className="hover:text-primary">Comment ça marche</Link></li>
+              <li>
+                <Link to="/plats" className="hover:text-primary">
+                  Tous les plats
+                </Link>
+              </li>
+              <li>
+                <Link to="/plats" className="hover:text-primary">
+                  Cuisiniers
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-primary">
+                  Comment ça marche
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-display text-base font-semibold">Cuisiniers</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/cuisinier" className="hover:text-primary">Rejoindre Diary</Link></li>
-              <li><Link to="/inscription" className="hover:text-primary">Créer un compte</Link></li>
-              <li><Link to="/login" className="hover:text-primary">Espace pro</Link></li>
+              <li>
+                <Link to="/cuisinier" className="hover:text-primary">
+                  Rejoindre Diary
+                </Link>
+              </li>
+              <li>
+                <Link to="/inscription" className="hover:text-primary">
+                  Créer un compte
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" className="hover:text-primary">
+                  Espace pro
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-display text-base font-semibold">Suivez-nous</h3>
             <div className="mt-4 flex gap-3">
-              <a href="#" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-smooth hover:bg-primary hover:text-primary-foreground">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-smooth hover:bg-primary hover:text-primary-foreground"
+              >
                 <Instagram className="h-4 w-4" />
               </a>
-              <a href="#" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-smooth hover:bg-primary hover:text-primary-foreground">
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-smooth hover:bg-primary hover:text-primary-foreground"
+              >
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href="mailto:hello@diary.app" aria-label="Email" className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-smooth hover:bg-primary hover:text-primary-foreground">
+              <a
+                href="mailto:hello@diary.app"
+                aria-label="Email"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-smooth hover:bg-primary hover:text-primary-foreground"
+              >
                 <Mail className="h-4 w-4" />
               </a>
             </div>

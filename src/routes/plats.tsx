@@ -13,13 +13,17 @@ type PlatsSearch = { q?: string; region?: string; cat?: string };
 export const Route = createFileRoute("/plats")({
   validateSearch: (search: Record<string, unknown>): PlatsSearch => ({
     q: typeof search.q === "string" && search.q ? search.q : undefined,
-    region: typeof search.region === "string" && search.region !== "all" ? search.region : undefined,
+    region:
+      typeof search.region === "string" && search.region !== "all" ? search.region : undefined,
     cat: typeof search.cat === "string" && search.cat !== "all" ? search.cat : undefined,
   }),
   head: () => ({
     meta: [
       { title: "Tous les plats — Diary" },
-      { name: "description", content: "Parcourez tous les plats faits maison disponibles près de chez vous sur Diary." },
+      {
+        name: "description",
+        content: "Parcourez tous les plats faits maison disponibles près de chez vous sur Diary.",
+      },
       { property: "og:title", content: "Tous les plats — Diary" },
       { property: "og:description", content: "Découvrez la cuisine maison de votre quartier." },
     ],
@@ -84,7 +88,8 @@ function PlatsPage() {
             Découvrez la cuisine du quartier
           </h1>
           <p className="mt-3 text-lg text-muted-foreground">
-            {filtered.length} plat{filtered.length > 1 ? "s" : ""} fait{filtered.length > 1 ? "s" : ""} maison disponible{filtered.length > 1 ? "s" : ""}
+            {filtered.length} plat{filtered.length > 1 ? "s" : ""} fait
+            {filtered.length > 1 ? "s" : ""} maison disponible{filtered.length > 1 ? "s" : ""}
           </p>
 
           <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center">
@@ -188,7 +193,9 @@ function PlatsPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {filtered.length === 0 ? (
           <div className="py-20 text-center">
-            <p className="text-lg text-muted-foreground">Aucun plat ne correspond à votre recherche.</p>
+            <p className="text-lg text-muted-foreground">
+              Aucun plat ne correspond à votre recherche.
+            </p>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

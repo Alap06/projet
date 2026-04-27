@@ -13,7 +13,11 @@ export type Review = {
 type ReviewsContextType = {
   reviews: Review[];
   getReviewsForDish: (dishId: string) => Review[];
-  getStatsForDish: (dishId: string, baseNote: number, baseAvis: number) => { note: number; avis: number };
+  getStatsForDish: (
+    dishId: string,
+    baseNote: number,
+    baseAvis: number,
+  ) => { note: number; avis: number };
   addReview: (data: Omit<Review, "id" | "createdAt">) => void;
 };
 

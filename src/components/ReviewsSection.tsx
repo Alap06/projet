@@ -94,7 +94,9 @@ export function ReviewsSection({ dishId }: { dishId: string }) {
               Publier mon avis
             </button>
             {sent && (
-              <p className="text-sm font-medium text-emerald-600">✓ Merci ! Votre avis a été publié.</p>
+              <p className="text-sm font-medium text-emerald-600">
+                ✓ Merci ! Votre avis a été publié.
+              </p>
             )}
           </form>
         )}
@@ -117,7 +119,11 @@ export function ReviewsSection({ dishId }: { dishId: string }) {
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="font-semibold">{r.userName}</p>
                     <span className="text-xs text-muted-foreground">
-                      {new Date(r.createdAt).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
+                      {new Date(r.createdAt).toLocaleDateString("fr-FR", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </span>
                   </div>
                   <div className="mt-1 flex items-center gap-0.5">

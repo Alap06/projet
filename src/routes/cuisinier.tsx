@@ -7,7 +7,10 @@ export const Route = createFileRoute("/cuisinier")({
   head: () => ({
     meta: [
       { title: "Devenir cuisinier — Diary" },
-      { name: "description", content: "Vendez vos plats faits maison sur Diary. Liberté, revenus, passion." },
+      {
+        name: "description",
+        content: "Vendez vos plats faits maison sur Diary. Liberté, revenus, passion.",
+      },
       { property: "og:title", content: "Devenir cuisinier — Diary" },
       { property: "og:description", content: "Partagez votre cuisine avec votre quartier." },
     ],
@@ -29,8 +32,8 @@ function CuisinierPage() {
             Transformez votre <span className="text-gradient-warm">passion</span> en revenu
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
-            Vendez vos plats faits maison à votre rythme. Vous fixez les prix,
-            vous choisissez les jours. Diary vous met en relation avec les clients.
+            Vendez vos plats faits maison à votre rythme. Vous fixez les prix, vous choisissez les
+            jours. Diary vous met en relation avec les clients.
           </p>
           <Link
             to="/inscription"
@@ -57,7 +60,9 @@ function CuisinierPage() {
 
         <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">Comment commencer</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Comment commencer
+            </p>
             <h2 className="mt-2 font-display text-4xl font-bold tracking-tight">
               4 étapes simples vers votre première vente
             </h2>

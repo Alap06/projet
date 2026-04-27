@@ -35,7 +35,13 @@ function InscriptionPage() {
       return;
     }
     void tel;
-    const res = register({ nom, email, password, role, ville: role === "cuisinier" ? ville : undefined });
+    const res = register({
+      nom,
+      email,
+      password,
+      role,
+      ville: role === "cuisinier" ? ville : undefined,
+    });
     if (!res.ok) {
       setError(res.error ?? "Erreur");
       return;
@@ -53,19 +59,23 @@ function InscriptionPage() {
           <p className="mt-2 text-sm text-muted-foreground">Créez votre compte en 1 minute.</p>
 
           <div className="mt-6 grid grid-cols-2 gap-3">
-            {([
+            {[
               { id: "client" as const, label: "Client", icon: User, desc: "Je commande" },
               { id: "cuisinier" as const, label: "Cuisinier", icon: ChefHat, desc: "Je vends" },
-            ]).map((r) => (
+            ].map((r) => (
               <button
                 key={r.id}
                 type="button"
                 onClick={() => setRole(r.id)}
                 className={`flex flex-col items-start gap-1 rounded-2xl border p-4 text-left transition-smooth ${
-                  role === r.id ? "border-primary bg-primary/5 shadow-soft" : "border-border hover:border-primary/40"
+                  role === r.id
+                    ? "border-primary bg-primary/5 shadow-soft"
+                    : "border-border hover:border-primary/40"
                 }`}
               >
-                <r.icon className={`h-5 w-5 ${role === r.id ? "text-primary" : "text-muted-foreground"}`} />
+                <r.icon
+                  className={`h-5 w-5 ${role === r.id ? "text-primary" : "text-muted-foreground"}`}
+                />
                 <span className="font-display text-base font-semibold">{r.label}</span>
                 <span className="text-xs text-muted-foreground">{r.desc}</span>
               </button>
@@ -114,7 +124,9 @@ function InscriptionPage() {
                   className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary"
                 >
                   {regions.map((r) => (
-                    <option key={r} value={r}>{r}</option>
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -130,7 +142,11 @@ function InscriptionPage() {
                 required
               />
             </div>
-            {error && <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">{error}</p>}
+            {error && (
+              <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                {error}
+              </p>
+            )}
             <button
               type="submit"
               className="h-12 w-full rounded-full bg-gradient-warm font-semibold text-primary-foreground shadow-warm transition-smooth hover:opacity-90"
@@ -146,7 +162,9 @@ function InscriptionPage() {
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
             Déjà inscrit ?{" "}
-            <Link to="/login" className="font-semibold text-primary hover:underline">Connectez-vous</Link>
+            <Link to="/login" className="font-semibold text-primary hover:underline">
+              Connectez-vous
+            </Link>
           </p>
         </div>
       </div>

@@ -40,7 +40,8 @@ export const dishes: Dish[] = [
     id: "couscous-agneau",
     nom: "Couscous à l'agneau",
     prix: 18,
-    description: "Couscous traditionnel mijoté avec agneau tendre, légumes de saison et bouillon parfumé aux épices maison.",
+    description:
+      "Couscous traditionnel mijoté avec agneau tendre, légumes de saison et bouillon parfumé aux épices maison.",
     image: couscous,
     categorie: "plat",
     note: 4.9,
@@ -57,7 +58,8 @@ export const dishes: Dish[] = [
     id: "riz-djerbien",
     nom: "Riz Djerbien",
     prix: 12.5,
-    description: "Spécialité de l'île de Djerba : riz parfumé aux épices, viande tendre, herbes fraîches et légumes mijotés. Un voyage gustatif authentique.",
+    description:
+      "Spécialité de l'île de Djerba : riz parfumé aux épices, viande tendre, herbes fraîches et légumes mijotés. Un voyage gustatif authentique.",
     image: rizDjerbien,
     categorie: "plat",
     note: 4.7,
@@ -74,7 +76,8 @@ export const dishes: Dish[] = [
     id: "loubia",
     nom: "Loubia",
     prix: 9,
-    description: "Ragoût traditionnel tunisien aux haricots blancs, viande tendre et sauce tomate parfumée. Servi avec pain maison.",
+    description:
+      "Ragoût traditionnel tunisien aux haricots blancs, viande tendre et sauce tomate parfumée. Servi avec pain maison.",
     image: loubia,
     categorie: "plat",
     note: 4.8,
@@ -91,7 +94,8 @@ export const dishes: Dish[] = [
     id: "kaak-warka",
     nom: "Kaak Warka",
     prix: 30,
-    description: "Pâtisserie noble tunisienne : anneau délicat à base d'amandes, feuilles de warka et eau de fleur d'oranger. Un délice pour les grandes occasions.",
+    description:
+      "Pâtisserie noble tunisienne : anneau délicat à base d'amandes, feuilles de warka et eau de fleur d'oranger. Un délice pour les grandes occasions.",
     image: kaakWarka,
     categorie: "dessert",
     note: 5,
@@ -108,7 +112,8 @@ export const dishes: Dish[] = [
     id: "makroudh",
     nom: "Makroudh aux dattes",
     prix: 9,
-    description: "Pâtisserie tunisienne à la semoule, fourrée aux dattes et trempée dans un sirop au miel.",
+    description:
+      "Pâtisserie tunisienne à la semoule, fourrée aux dattes et trempée dans un sirop au miel.",
     image: makroudh,
     categorie: "dessert",
     note: 4.8,
@@ -125,7 +130,8 @@ export const dishes: Dish[] = [
     id: "ojja-merguez",
     nom: "Ojja merguez",
     prix: 12,
-    description: "Sauce tomate épicée mijotée avec merguez maison et œufs cassés directement dedans.",
+    description:
+      "Sauce tomate épicée mijotée avec merguez maison et œufs cassés directement dedans.",
     image: ojja,
     categorie: "plat",
     note: 4.8,
@@ -142,7 +148,8 @@ export const dishes: Dish[] = [
     id: "tajine-tunisien",
     nom: "Tajine maison",
     prix: 14,
-    description: "Tajine moelleux aux œufs, thon, fromage et persil. Cuit lentement pour une texture parfaite.",
+    description:
+      "Tajine moelleux aux œufs, thon, fromage et persil. Cuit lentement pour une texture parfaite.",
     image: tajine,
     categorie: "plat",
     note: 4.8,
@@ -159,7 +166,8 @@ export const dishes: Dish[] = [
     id: "brik-oeuf",
     nom: "Brik à l'œuf",
     prix: 6,
-    description: "Feuille de brik croustillante garnie d'un œuf coulant, thon, câpres et persil. Servi avec citron.",
+    description:
+      "Feuille de brik croustillante garnie d'un œuf coulant, thon, câpres et persil. Servi avec citron.",
     image: brik,
     categorie: "entree",
     note: 4.7,
@@ -176,7 +184,8 @@ export const dishes: Dish[] = [
     id: "salade-mechouia",
     nom: "Salade méchouia",
     prix: 8,
-    description: "Salade de poivrons et tomates grillés au feu de bois, thon, œuf dur et olives. Saveur fumée unique.",
+    description:
+      "Salade de poivrons et tomates grillés au feu de bois, thon, œuf dur et olives. Saveur fumée unique.",
     image: salade,
     categorie: "entree",
     note: 4.6,

@@ -33,7 +33,14 @@ type CartContextType = {
   clear: () => void;
   total: number;
   count: number;
-  placeOrder: (info: { clientId: string; clientNom: string; clientTel: string; clientAdresse: string; paiement: "carte" | "livraison" | "d17"; paiementInfo?: string }) => Order;
+  placeOrder: (info: {
+    clientId: string;
+    clientNom: string;
+    clientTel: string;
+    clientAdresse: string;
+    paiement: "carte" | "livraison" | "d17";
+    paiementInfo?: string;
+  }) => Order;
   updateOrderStatus: (id: string, status: Order["status"]) => void;
   ordersForCuisinier: (nom: string) => Order[];
 };
@@ -68,11 +75,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const add: CartContextType["add"] = (item, qty = 1) => {
     setItems((prev) => {
       const found = prev.find((i) => i.dishId === item.dishId);
-      if (found) return prev.map((i) => (i.dishId === item.dishId ? { ...i, qty: i.qty + qty } : i));
+      if (found)
+        return prev.map((i) => (i.dishId === item.dishId ? { ...i, qty: i.qty + qty } : i));
       return [...prev, { ...item, qty }];
     });
   };
-  const remove: CartContextType["remove"] = (dishId) => setItems((prev) => prev.filter((i) => i.dishId !== dishId));
+  const remove: CartContextType["remove"] = (dishId) =>
+    setItems((prev) => prev.filter((i) => i.dishId !== dishId));
   const setQty: CartContextType["setQty"] = (dishId, qty) => {
     if (qty <= 0) return remove(dishId);
     setItems((prev) => prev.map((i) => (i.dishId === dishId ? { ...i, qty } : i)));
@@ -104,7 +113,21 @@ export function CartProvider({ children }: { children: ReactNode }) {
     orders.filter((o) => o.items.some((i) => i.cuisinier.toLowerCase() === nom.toLowerCase()));
 
   return (
-    <CartContext.Provider value={{ items, orders, add, remove, setQty, clear, total, count, placeOrder, updateOrderStatus, ordersForCuisinier }}>
+    <CartContext.Provider
+      value={{
+        items,
+        orders,
+        add,
+        remove,
+        setQty,
+        clear,
+        total,
+        count,
+        placeOrder,
+        updateOrderStatus,
+        ordersForCuisinier,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

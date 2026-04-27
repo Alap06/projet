@@ -13,7 +13,13 @@ export type AuthUser = {
 type AuthContextType = {
   user: AuthUser | null;
   login: (email: string, password: string) => { ok: boolean; error?: string };
-  register: (data: { nom: string; email: string; password: string; role: Role; ville?: string }) => { ok: boolean; error?: string };
+  register: (data: {
+    nom: string;
+    email: string;
+    password: string;
+    role: Role;
+    ville?: string;
+  }) => { ok: boolean; error?: string };
   logout: () => void;
 };
 
@@ -65,16 +71,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login: AuthContextType["login"] = (email, password) => {
     const users = readUsers();
-    const found = users.find((u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
+    const found = users.find(
+      (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password,
+    );
     if (!found) return { ok: false, error: "Email ou mot de passe incorrect." };
-    const session: AuthUser = { id: found.id, nom: found.nom, email: found.email, role: found.role, ville: found.ville };
+    const session: AuthUser = {
+      id: found.id,
+      nom: found.nom,
+      email: found.email,
+      role: found.role,
+      ville: found.ville,
+    };
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
     setUser(session);
     return { ok: true };
   };
 
   const register: AuthContextType["register"] = ({ nom, email, password, role, ville }) => {
-    if (!nom || !email || !password) return { ok: false, error: "Tous les champs sont obligatoires." };
+    if (!nom || !email || !password)
+      return { ok: false, error: "Tous les champs sont obligatoires." };
     const users = readUsers();
     if (users.some((u) => u.email.toLowerCase() === email.toLowerCase())) {
       return { ok: false, error: "Un compte avec cet email existe déjà." };
@@ -100,7 +115,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   };
 
-  return <AuthContext.Provider value={{ user, login, register, logout }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, login, register, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth() {
